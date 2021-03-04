@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EntretienController!{% endblock %}
+
+{% block body %}
+    <h1 align="center"> entretiens</h1>
+    <table border="2" align="center" id="box1">
+        <tr>
+            <th width="100"
+                height="100" align="center">OI </th>
+
+            <th width="100"
+                height="100" align="center"> type </th>
+
+            <th width="100"
+                height="100" align="center"> adresse </th>
+
+            <th width="100"
+                height="100" align="center"> date </th>
+
+
+            <th width="100"
+                height="100" align="center"> delete </th>
+            <th width="100"
+                height="100" align="center"> update </th>
+
+        </tr>
+        {% for entretien in listentretien %}
+        <tr>
+            <td width="100"
+                height="100" align="center"> {{entretien.id}}</td>
+            <td  width="100"
+                 height="100"align="center">{{ entretien.OI }}</td>
+            <td  width="100"
+                 height="100"align="center">{{ entretien.type }}</td>
+            <td  width="100"
+                 height="100"align="center">{{ entretien.adresse }}</td>
+            <td  width="100"
+                 height="100"align="center">{{ entretien.date }}</td>
+
+
+            <td width="100"
+                height="100">   <a href="{{path('supprimer',{'id':offre.id }) }}">supprimer</a>                              </td>
+            <td width="100"
+                height="100">   <a href="{{path('modifierentretien',{'id':offre.id }) }}">modifier</a>   </td>
+
+
+            {% endfor %}
+
+        </tr>
+
+
+
+
+
+
+
+    </table>
+    <br></br>
+    <div  align ="center"><a  class="sty" href="{{path('ajouterOffre') }}">ADD offre</a> </div>
+
+{% endblock %}

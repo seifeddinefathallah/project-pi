@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello OffreController!{% endblock %}
+
+{% block body %}
+    <h1 align="center"> offres</h1>
+    <table border="2" align="center" id="box1">
+        <tr>
+            <th width="100"
+                height="100" align="center">ID </th>
+
+            <th width="100"
+                height="100" align="center"> titre </th>
+
+            <th width="100"
+                height="100" align="center"> entreprise </th>
+
+            <th width="100"
+                height="100" align="center"> type_contrat </th>
+
+            <th width="100"
+                height="100" align="center"> location </th>
+
+            <th width="100"
+                height="100" align="center"> description </th>
+            <th width="100"
+                height="100" align="center"> delete </th>
+            <th width="100"
+                height="100" align="center"> update </th>
+
+        </tr>
+        {% for offre in listoffre %}
+        <tr>
+            <td width="100"
+                height="100" align="center"> {{offre.id}}</td>
+            <td  width="100"
+                 height="100"align="center">{{ offre.title }}</td>
+            <td  width="100"
+                 height="100"align="center">{{ offre.entreprise }}</td>
+            <td  width="100"
+                 height="100"align="center">{{ offre.typecontrat }}</td>
+            <td  width="100"
+                 height="100"align="center">{{ offre.location }}</td>
+            <td  width="100"
+                 height="100"align="center">{{ offre.description }}</td>
+
+            <td width="100"
+                height="100">   <a href="{{path('supprimer',{'id':offre.id }) }}">supprimer</a>                              </td>
+            <td width="100"
+                height="100">   <a href="{{path('modifieroffre',{'id':offre.id }) }}">modifier</a>   </td>
+
+
+            {% endfor %}
+
+        </tr>
+
+
+
+
+
+
+
+    </table>
+    <br></br>
+    <div  align ="center"><a  class="sty" href="{{path('ajouterOffre') }}">ADD offre</a> </div>
+
+{% endblock %}
